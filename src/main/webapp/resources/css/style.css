@@ -1,0 +1,294 @@
+:root {
+  --color-main: #c84fff;
+  --color-mainDark: #9000ff;
+  --color-mainLight: #d988fe;
+  --color-sub: #ffd200;
+  --color-subDark: #c79f00;
+  --color-subLight: #ffff51;
+  --color-LightGreen: rgb(212,251,1);
+  --color-pink: #ff80ab;
+}
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+#wrap {
+  width: 100vw;
+  height: 100%;
+  background-color: var(--color-mainDark);
+  color: white;
+  position: relative;
+}
+
+
+/* 헤더 ------------------------------------*/
+
+header {
+  text-align: center;
+  padding-top: 2em;
+  margin-bottom: 2em;
+  position: relative;
+}
+
+.logo {
+  font-size: 5rem;
+  font-weight: 900;
+  transition: all .3s ease;
+}
+
+#headerMenu {
+  padding-right: 1.5em;
+  text-align: right;
+  font-size: 1.5em;
+}
+
+#headerMenu > a {
+  padding-right: 1em;
+}
+
+#loginBtn {
+	cursor: pointer;
+	opacity: 1;
+}
+
+#loginForm {
+	position: absolute;
+	right: 10em;
+	top: 10em;
+	display: none;
+}
+
+#loginForm > input[name="id"],
+#loginForm > input[name="pw"] {
+	width: 10vw;
+	min-width: 100px;
+	outline: none;
+}
+
+
+/* 네비게이션 --------------------------------*/
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--color-subLight);
+  color: var(--color-mainDark);
+  font-size: 2rem;
+}
+
+nav > a {
+	cursor: pointer;
+}
+
+
+/* 비디오 리스트 ------------------------------------*/
+
+#articleItems {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.articleItem {
+  border-radius: 10px;
+  margin: 2em;
+  width: 24rem;
+  background: #f9f9f9;
+  color: var(--color-mainDark);
+  font-weight: 600;
+  transition: background 250ms ease-in, transform 250ms ease-in;
+  margin-bottom: 2em;
+}
+
+.articleItem:hover {
+	color: white;
+	background: var(--color-pink);
+	transform: scale(1.02);
+}
+
+.articleItem > div {
+	padding: 1em;
+}
+
+
+/* 가입폼 ------------------------------------*/
+
+#joinFormWrap,
+#memberInfoFormWrap {
+	display: none;
+	width: 80vw;
+	height: 20em;
+	position: absolute;
+	top: 13em;
+	left: 40vw;
+	transform: translateX(-30vw);
+	background: white;
+}
+
+#joinFormWrap > form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2em;
+}
+
+#joinFormWrap > form  > input {
+	max-width: 30vw;
+	display: block;
+}
+
+
+.idCheckMsg,
+.pwCheckMsg,
+.nickCheckMsg {
+	color: var(--color-mainDark);
+}
+
+
+/* 글 작성폼 ------------------------------------*/
+
+#writeFormWrap {
+	display: none;
+	opacity: 0;
+	height: 100%;
+	transition: opacity 500ms ease-in;
+	background: var(--color-mainDark);
+}
+
+#writeForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#writeForm > input {
+	font-size: 1rem;
+	font-weight: 600;
+	padding: 0.5em;
+	margin: 1.2em;
+	width: 70%;
+	transition: all 0.3s ease 0s;
+	outline: none;
+	border: none;
+  	border-radius: 45px;
+}
+
+
+/* 버튼 ------------------------------------*/
+
+.Btn {
+	width: 9em;
+	height: 3em;
+	border: none;
+	background: white;
+	border-radius: 0.5em;
+	outline: none;
+	cursor: pointer;
+}
+
+.Btn:hover {
+	color: white;
+	background-color: #2EE59D;
+}
+
+/* 위로가기 버튼 ------------------------------------*/
+
+.fa-arrow-circle-up {
+	position: sticky;
+	font-size: 2em;
+	left: 95vw;
+	bottom: 7em;
+	z-index: 10;
+	cursor: pointer;
+	transition: color 250ms ease-in;
+}
+
+.fa-arrow-circle-up:hover {
+	color: var(--color-LightGreen);
+}
+
+
+/* 공지사항 ------------------------------------*/
+
+#noticeWrap {
+	display: none;
+	opacity: 0;
+	height: 100%;
+	transition: opacity 500ms ease-in;
+}
+
+#noticeItems {
+	width: 70vw;
+	padding: 0;
+	margin: 0 auto;
+}
+
+.noticeItem {
+	padding-top: 2em;
+}
+
+
+
+#noticeWriteFormWrap {
+	width: 80vw;
+	margin: 0 auto;
+}
+.noticeWriteForm {
+	display: flex; 
+	flex-direction: column; 
+	align-items: center;
+}
+
+.noticeWriteForm > input,
+.noticeWriteForm > textarea {
+	width: 100%;
+}
+
+details {
+	border-radius: 1em;
+	background: white;
+	transition: background 1000ms ease-out;
+}
+
+details:hover {
+	background: var(--color-LightGreen);
+}
+
+details > article {
+	color: var(--color-main);
+	
+	padding: 1em;
+	cursor: pointer;
+}
+
+summary {
+	outline: none;
+	padding: 0.2em;
+	font-weight: 600;
+	color: var(--color-main);
+	cursor: pointer;
+}
+
+
+
+/* 화면사이즈 변경시 적용내용------------------------*/
+@media screen and (max-width: 50rem) {
+	
+	.articleItem {
+	  width: 40em;
+	}
+}
+

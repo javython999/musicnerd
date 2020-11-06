@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+   <!-- 회원 추가 -->
+   <insert id="insert">
+   	INSERT INTO MEMBER (ID, PW, NICKNAME)
+   	VALUES (#{id}, #{pw}, #{nickname})
+   </insert>
+   
+   <!-- 로그인  -->
+   <select id="login_check" resultType="string">
+   	SELECT NICKNAME
+   	FROM MEMBER 
+   	WHERE ID = #{id} and PW = #{pw}
+   </select>
+   
+   <!-- 아이디 중복확인 -->
+   <select id="id_duplex_check" resultType="int">
+    SELECT COUNT(*) 
+    FROM MEMBER 
+    WHERE ID = #{id}
+   </select>
+   
+   <!-- 닉네임 중복확인 -->
+   <select id="nick_duplex_check" resultType="int">
+    SELECT COUNT(*) 
+    FROM MEMBER 
+    WHERE NICKNAME = #{nick}
+   </select>
+   
+   <!-- 비밀번호 수정 -->
+   <update id="update">
+   	UPDATE MEMBER 
+	SET PW = #{pw}, NICKNAME = #{nickname}
+	WHERE ID = #{id}
+   </update>
+   
+</mapper>

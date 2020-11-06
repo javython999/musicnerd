@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="noticeMapper">
+   
+   <!-- Notice Insert -->
+   <insert id="insert">
+   	INSERT INTO NOTICE (TITLE, CONTENT)
+   	VALUES (#{title}, #{content})
+   </insert>
+   
+   <!-- Notice List Read -->
+   <select id="select" resultType="com.myspring.musicnerd.vo.NoticeVO">
+   	SELECT *
+	FROM (SELECT * FROM NOTICE ORDER BY REGDATE DESC)
+	WHERE ROWNUM <![CDATA[<=]]> 10
+   </select>
+
+  <!-- Article List infinite Scroll -->
+  <select id="infinite" resultType="com.myspring.musicnerd.vo.NoticeVO" parameterType="java.util.Map">
+  	SELECT *
+  	FROM( SELECT * FROM article WHERE ARTICLE_ID BETWEEN ${end} and ${start})
+  	ORDER BY REGDATE DESC 	 
+  </select>
+ 
+
+</mapper>
