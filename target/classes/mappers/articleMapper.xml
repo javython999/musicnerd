@@ -14,7 +14,7 @@
    <select id="select" resultType="com.myspring.musicnerd.vo.ArticleVO">
    	SELECT *
 	FROM (SELECT * FROM ARTICLE ORDER BY REGDATE DESC)
-	WHERE ROWNUM <![CDATA[<=]]> 10
+	WHERE ROWNUM <![CDATA[<=]]> 15
    </select>
 
   <!-- Article List infinite Scroll -->

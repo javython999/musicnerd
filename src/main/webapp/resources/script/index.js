@@ -1,5 +1,20 @@
 'use strict'
 
+// 로그인폼 open & close
+const loginForm = document.querySelector('#loginForm');
+let loginView = 'close';
+function handleLoginOpen() {
+	if(loginView === 'close') {
+		$(loginForm).stop().slideDown();
+		joinFormClose();
+		loginView = 'open';
+	}  else {
+		$(loginForm).stop().slideUp();
+		loginView = 'close';
+	}
+}
+
+
 // 로그인 클릭시 로그인폼 등장
 function handleClick() {
 	const loginForm = document.querySelector('#loginForm');
@@ -27,19 +42,35 @@ function handleLoginCancle() {
 }
 
 
-
-// 회원가입 클릭시 가입폼 등장
-function handleJoin() {
-	const loginForm = document.querySelector('#joinFormWrap');
-	loginForm.style.display = 'block';
+function LoginFormClose() {
+	if(loginView == 'close') {
+		return;
+	} else {
+		handleLoginOpen();
+	}
 }
 
-// 회원가입 취소
-function handleJoinCancle() {
-	const loginForm = document.querySelector('#joinFormWrap');
-	loginForm.style.display = 'none';
+// 회원가입폼 open & close
+const joinForm = document.querySelector('#joinFormWrap');
+let joinView = 'close';
+function handleJoinOpen() {
+	if(joinView === 'close') {
+		$(joinForm).stop().slideDown();
+		LoginFormClose();
+		joinView = 'open';
+	}  else {
+		$(joinForm).stop().slideUp();
+		joinView = 'close';
+	}
 }
 
+function joinFormClose() {
+	if(joinView == 'close') {
+		return;
+	} else {
+		handleJoinOpen();
+	}
+}
 
 // 아이디 중복체크
 function id_duplex_check(input) {

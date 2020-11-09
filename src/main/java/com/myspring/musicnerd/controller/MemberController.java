@@ -29,9 +29,6 @@ public class MemberController {
 	@RequestMapping("member/insert.do")
 	public String insert(@ModelAttribute MemberVO memberVO) {
 		
-		System.out.println("아이디 : " + memberVO.getId());
-		System.out.println("비번 : " + memberVO.getPw());
-		System.out.println("닉네임 : " + memberVO.getNickname());
 		memberDAO.insert(memberVO);
 		return "redirect:/";
 	}
@@ -40,9 +37,7 @@ public class MemberController {
 	// 로그인
 	@RequestMapping("member/login_check.do")
 	public String login_check(@ModelAttribute MemberVO memberVO, HttpSession session) {
-		
 		String nickname = memberService.loginCheck(memberVO, session);
-		
 		return "redirect:/";
 	}
 	
@@ -59,8 +54,6 @@ public class MemberController {
 	@RequestMapping(value = "member/join/idduplexcheck", method = RequestMethod.GET)
 	@ResponseBody
 	public int id_duplex_check(@RequestParam("id") String id) {
-		System.out.println(id);
-		System.out.println("리턴 : " + memberService.userIdCheck(id));
 		return memberService.userIdCheck(id);
 	}
 	
@@ -68,8 +61,6 @@ public class MemberController {
 	@RequestMapping(value = "member/join/nickduplexcheck", method = RequestMethod.GET)
 	@ResponseBody
 	public int nick_duplex_check(@RequestParam("nick") String nick) {
-		System.out.println(nick);
-		System.out.println("리턴 : " + memberService.userNickCheck(nick));
 		return memberService.userNickCheck(nick);
 	}
 	

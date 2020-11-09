@@ -12,9 +12,9 @@
   	<div class="nickCheckMsg">닉네임 설정</div>
   	<input class="nickChecker" type="hidden" />
   	<input class="inputNic" type="text" name="nickname" placeholder="닉네임" onkeyup="nick_duplex_check(this)" />
-  	<div>
-  		<input type="submit" value="가입"/>
-  		<button type="reset" onclick={handleJoinCancle()}>취소</button>
+  	<div class="joinBtnBox">
+  		<input class="joinSubmitBtn" type="submit" value="가입"/>
+  		<button class="joinCancleBtn" type="reset" onclick="handleJoinOpen()">취소</button>
   	</div>
   </form>
 </div>

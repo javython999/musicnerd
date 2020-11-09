@@ -22,11 +22,13 @@
 <body>
   <div id='wrap'>
     <%@include file="/WEB-INF/views/common/header.jsp" %>
+    <%@include file="/WEB-INF/views/common/login.jsp" %>
+    <%@include file="/WEB-INF/views/common/joinform.jsp" %>
     <%@include file="/WEB-INF/views/common/nav.jsp" %>
     <%@include file="/WEB-INF/views/common/writeform.jsp" %>
     <%@include file="/WEB-INF/views/common/notice.jsp" %>
     <%@include file="/WEB-INF/views/common/content.jsp" %>
-    <%@include file="/WEB-INF/views/common/joinform.jsp" %>
+    
     <i class="fas fa-arrow-circle-up"></i>
   </div>
 </body>

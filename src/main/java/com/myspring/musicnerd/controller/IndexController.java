@@ -39,31 +39,28 @@ public class IndexController {
 	}
 	
 	
-	
-	
 	// 게시글 추가
 	@RequestMapping("article/insert.do")
 	public String insert(@ModelAttribute ArticleVO articleVO) {
 		
-		
 		// 유튜브 영상 주소에서 영상ID값 구하기
 		String str = articleVO.getVideo();
-		if(str.length() > 43) {
+		if(str.length() > 43) { // 플레이리스트에서 영상 가져올시
 			String[] array = str.split("&");
-			System.out.println(array);
 			String[] videoID = array[0].split("v=");
-			System.out.println(videoID);
 			articleVO.setVideo(videoID[1]);
 			articleDAO.insert(articleVO);
-		} else {
+		} else if (str.length() == 28) { // 공유로 URL가져올시
+			String[] array = str.split(".be/");
+			articleVO.setVideo(array[1]);
+			articleDAO.insert(articleVO);
+		} else { // 주소창에서 URL 가져올시
 			String[] array = str.split("v=");
 			
 			// 영상ID값으로 DB에 저장하기
 			articleVO.setVideo(array[1]);
 			articleDAO.insert(articleVO);
 		}
-		
-		
 		
 		return "redirect:/";
 	}

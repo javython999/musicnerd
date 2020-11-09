@@ -28,7 +28,7 @@ ul {
   height: 100%;
   background-color: var(--color-mainDark);
   color: white;
-  position: relative;
+  /* position: relative; */
 }
 
 
@@ -57,24 +57,55 @@ header {
   padding-right: 1em;
 }
 
-#loginBtn {
+#loginBtn,
+#joinBtn {
 	cursor: pointer;
-	opacity: 1;
+}
+
+#loginFormWrap {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 0.5em;
 }
 
 #loginForm {
-	position: absolute;
-	right: 10em;
-	top: 10em;
 	display: none;
+}
+
+input[id="input_id"],
+input[id="input_pw"],
+#loginForm > button {
+	font-size: 1.4em;
+	outline: none;
+	border: none;
+}
+
+input[id="input_id"],
+input[id="input_pw"] {
+	border-radius: 0.5em;
+}
+
+#loginForm > button {
+	border-radius: 0.5em;
+	cursor: pointer;
 }
 
 #loginForm > input[name="id"],
 #loginForm > input[name="pw"] {
 	width: 10vw;
 	min-width: 100px;
-	outline: none;
 }
+
+.loginBtn,
+.loginCancleBtn {
+	cursor: pointer;
+	background: white;
+}
+
+.loginBtn:hover,
+.loginCancleBtn:hover {
+	background: #2EE59D;
+} 
 
 
 /* 네비게이션 --------------------------------*/
@@ -126,36 +157,58 @@ nav > a {
 
 /* 가입폼 ------------------------------------*/
 
-#joinFormWrap,
-#memberInfoFormWrap {
-	display: none;
-	width: 80vw;
-	height: 20em;
-	position: absolute;
-	top: 13em;
-	left: 40vw;
-	transform: translateX(-30vw);
-	background: white;
+#joinFormWrap {
+	display:none;
+	width: 100vw;
+	background: var(--color-pink);
 }
 
 #joinFormWrap > form {
+	width: 80vw;
+	margin: 0 auto;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
-	padding: 2em;
+	flex-direction: column;
 }
 
-#joinFormWrap > form  > input {
-	max-width: 30vw;
-	display: block;
+#joinFormWrap > form > input{
+	font-size: 1.4rem;
+	border-radius: 0.5em;
+	outline: none;
+	border: none;
+	margin-bottom: 0.4em;
 }
-
 
 .idCheckMsg,
 .pwCheckMsg,
 .nickCheckMsg {
-	color: var(--color-mainDark);
+	color: white;
 }
+
+.joinBtnBox {
+	margin-bottom: 2em;
+}
+
+.joinBtnBox > input,
+.joinBtnBox > button {
+	font-size: 1.4em;
+	border-radius: 0.5em
+}
+
+.joinSubmitBtn,
+.joinCancleBtn {
+	outline: none;
+	border: none;
+	cursor: pointer;
+	background: white;
+}
+
+.joinSubmitBtn:hover,
+.joinCancleBtn:hover {
+	background: #2EE59D;
+} 
+
+
 
 
 /* 글 작성폼 ------------------------------------*/
@@ -286,7 +339,22 @@ summary {
 
 /* 화면사이즈 변경시 적용내용------------------------*/
 @media screen and (max-width: 50rem) {
+	.logo {
+		font-size: 3rem;
+	}
 	
+	#headerMenu {
+		font-size: 0.8rem;
+	}
+	
+	#loginForm {
+		top: 7em;
+		left: 1em;
+	}
+	
+	nav {
+		font-size: 1rem;
+	}
 	.articleItem {
 	  width: 40em;
 	}
